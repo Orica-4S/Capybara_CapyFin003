@@ -1986,7 +1986,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">140,373 140,429</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <TryCatch DisplayName="LWBRK Table" sap:VirtualizedContainerService.HintSize="440,761.3333333333334" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch DisplayName="LWBRK Table" sap:VirtualizedContainerService.HintSize="996.6666666666665,1346" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                 <TryCatch.Try>
                   <Sequence DisplayName="Generate and Download List of SMD WBRK" sap:VirtualizedContainerService.HintSize="958,1083.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_25">
                     <sap:WorkflowViewStateService.ViewState>
@@ -2050,7 +2050,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Throw Exception="[New SystemException(In_Config(&quot;SE_DownloadFile&quot;).ToString+&quot; List of SMD &quot;+In_Config(&quot;VBAKTableName&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="Throw_3" />
+                                <Throw Exception="[New SystemException(In_Config(&quot;SE_DownloadFile&quot;).ToString+&quot; List of SMD &quot;+In_Config(&quot;LWBRKTableName&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="Throw_3" />
                               </Sequence>
                             </uix:NCheckState.IfNotExists>
                             <uix:NCheckState.Target>
@@ -2068,7 +2068,7 @@
                   </Sequence>
                 </TryCatch.Try>
                 <TryCatch.Catches>
-                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="406,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="962.6666666666666,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -2110,10 +2110,10 @@
                       </Sequence>
                     </ActivityAction>
                   </Catch>
-                  <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="406,564.6666666666666" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                  <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="962.6666666666666,22" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -2130,21 +2130,11 @@
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="[exception.Message]" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Update Failed Status for  LWBRK &amp; Its Dependent Files " sap:VirtualizedContainerService.HintSize="338,115.33333333333333" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="Workflows\Update Multiple Status.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="In_TableName">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;L&quot;+In_Config(&quot;LWBRKTableName&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="In_FilePath">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="In_Config(&quot;OutputFolder_Path&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="In_Status">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="In_Config(&quot;LWBRKDependentFiles&quot;).ToString" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="In_Month">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="In_DirectoryMonth" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="In_Fin003FolderName">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="In_Config(&quot;Fin003FolderName&quot;).ToString" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="In_TableName">["L"+In_Config("LWBRKTableName").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="In_FilePath">[In_Config("OutputFolder_Path").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="In_Status">[In_Config("LWBRKDependentFiles").ToString]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="In_Month">[In_DirectoryMonth]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="In_Fin003FolderName">[In_Config("Fin003FolderName").ToString]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="In_ExceptionMessage" />
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>

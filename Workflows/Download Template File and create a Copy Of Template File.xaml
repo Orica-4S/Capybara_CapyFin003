@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>844,1744</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>844,1153.3333333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_Template_File_and_create_a_Copy_Of_Template_File_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -79,9 +79,10 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;Download Template File &amp; Create a Copy Of Template File in Required Folder&#xA;&#xA;[Description]:-&#xA;This workflow is going to Download the Template File from storage bucket and would create copy of template file into the required folder. If BoolValue of Assest &quot;RunForBothMonths&quot; is True then it would create copy in Previous month Name and Current Month Name Folder, &amp; If False then it would create a copy only in Current Month Name Folder&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;@In_Config:- Dictionary&lt;string,object&gt; containing configurable key value pairs for variables to be used.&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error.&#xA;&#xA;[Author]:- &#xA;brijesh.patel@orica.com" DisplayName="Download Template File &amp; Create a Copy Of Template File in Required Folder" sap:VirtualizedContainerService.HintSize="594,1679.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;Download Template File &amp; Create a Copy Of Template File in Required Folder&#xA;&#xA;[Description]:-&#xA;This workflow is going to Download the Template File from storage bucket and would create copy of template file into the required folder. If BoolValue of Assest &quot;RunForBothMonths&quot; is True then it would create copy in Previous month Name and Current Month Name Folder, &amp; If False then it would create a copy only in Current Month Name Folder&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;@In_Config:- Dictionary&lt;string,object&gt; containing configurable key value pairs for variables to be used.&#xA;&#xA;[Output]:-&#xA;&#xA;[Remarks]:- &#xA;In case of any errors the workflow will capture the error,log custom message  and rethrow the error.&#xA;&#xA;[Author]:- &#xA;brijesh.patel@orica.com" DisplayName="Download Template File &amp; Create a Copy Of Template File in Required Folder" sap:VirtualizedContainerService.HintSize="782,3884.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strTempFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="File_Exist" />
@@ -94,27 +95,27 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="532,1206.6666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="720,3428.6666666666665" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="493.3333333333333,967.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence sap:VirtualizedContainerService.HintSize="681.3333333333334,3189.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Downloading Template File&quot;]" />
-          <Sequence sap2010:Annotation.AnnotationText="Download Template file from Storage bucket to local folder" DisplayName="Download Template File From Storage Bucket" sap:VirtualizedContainerService.HintSize="431.3333333333333,80" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="619.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Downloading Template File&quot;]" />
+          <Sequence sap2010:Annotation.AnnotationText="Download Template file from Storage bucket to local folder" DisplayName="Download Template File From Storage Bucket" sap:VirtualizedContainerService.HintSize="619.3333333333334,1012" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="boolConfigFileExists" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap2010:Annotation.AnnotationText="Config File local path" sap:VirtualizedContainerService.HintSize="416.6666666666667,102.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap2010:Annotation.AnnotationText="Config File local path" sap:VirtualizedContainerService.HintSize="412.6666666666667,94" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[strTempFilePath]</OutArgument>
               </Assign.To>
@@ -127,8 +128,8 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
-            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[boolConfigFileExists]" sap:VirtualizedContainerService.HintSize="416.6666666666667,100.66666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[strTempFilePath]" PathType="File" />
-            <If sap2010:Annotation.AnnotationText="Check if config file exists then delete the existing file else continue process" Condition="[boolConfigFileExists]" DisplayName="If | Config File exists" sap:VirtualizedContainerService.HintSize="416.6666666666667,419.3333333333333" sap2010:WorkflowViewState.IdRef="If_2">
+            <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[boolConfigFileExists]" sap:VirtualizedContainerService.HintSize="412.6666666666667,92" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[strTempFilePath]" PathType="File" />
+            <If sap2010:Annotation.AnnotationText="Check if config file exists then delete the existing file else continue process" Condition="[boolConfigFileExists]" DisplayName="If | Config File exists" sap:VirtualizedContainerService.HintSize="412.6666666666667,428" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -137,13 +138,13 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,90.66666666666667" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[strTempFilePath]" />
+                <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[strTempFilePath]" />
               </If.Then>
               <If.Else>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,104.66666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Template file not deleted.&quot;]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Template file not deleted.&quot;]" />
               </If.Else>
             </If>
-            <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[strTempFilePath]" DisplayName="Download Storage File" FolderPath="Capybara Processes/FIN03-Account Payable" sap:VirtualizedContainerService.HintSize="416.6666666666667,145.33333333333334" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="[In_Config(&quot;Template_FilepStorageBucketPath&quot;).ToString]" StorageBucketName="[In_Config(&quot;Template_FileStorageBucketName&quot;).ToString]">
+            <ucas:DownloadStorageFile TimeoutMS="{x:Null}" Destination="[strTempFilePath]" DisplayName="Download Storage File" FolderPath="[In_Config(&quot;OrchestratorAssetFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="412.6666666666667,136.66666666666666" sap2010:WorkflowViewState.IdRef="DownloadStorageFile_1" Path="[In_Config(&quot;Template_FilepStorageBucketPath&quot;).ToString]" StorageBucketName="[In_Config(&quot;Template_FileStorageBucketName&quot;).ToString]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -152,8 +153,8 @@
               </sap:WorkflowViewStateService.ViewState>
             </ucas:DownloadStorageFile>
           </Sequence>
-          <ui:PathExists Resource="{x:Null}" DisplayName="&quot;Template File&quot;Path Exists" Exists="[File_Exist]" sap:VirtualizedContainerService.HintSize="431.3333333333333,92" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[strTempFilePath]" PathType="File" />
-          <ui:MultipleAssign DisplayName="Multiple Assign Previous &amp; Current Month Names" sap:VirtualizedContainerService.HintSize="431.3333333333333,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:PathExists Resource="{x:Null}" DisplayName="&quot;Template File&quot;Path Exists" Exists="[File_Exist]" sap:VirtualizedContainerService.HintSize="619.3333333333334,92" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[strTempFilePath]" PathType="File" />
+          <ui:MultipleAssign DisplayName="Multiple Assign Previous &amp; Current Month Names" sap:VirtualizedContainerService.HintSize="619.3333333333334,131.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -175,11 +176,11 @@
               </scg:List>
             </ui:MultipleAssign.AssignOperations>
           </ui:MultipleAssign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Creating A Copy of Template File&quot;]" />
-          <If Condition="[File_Exist=True]" DisplayName="Create a copy of Template File" sap:VirtualizedContainerService.HintSize="431.3333333333333,25.333333333333332" sap2010:WorkflowViewState.IdRef="If_1">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="619.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Creating A Copy of Template File&quot;]" />
+          <If Condition="[File_Exist=True]" DisplayName="Create a copy of Template File" sap:VirtualizedContainerService.HintSize="619.3333333333334,1315.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -219,11 +220,11 @@
               <Throw Exception="[New SystemException(&quot;Template File Not Found&quot;)]" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="Throw_1" />
             </If.Else>
           </If>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="431.3333333333333,96" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Copy of Template File was Created Successfully&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="619.3333333333334,96" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Copy of Template File was Created Successfully&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="498,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="686,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -234,7 +235,15 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[In_Config(&quot;SE_TemplateFile&quot;).ToString]" />
+            <Sequence sap:VirtualizedContainerService.HintSize="400,338.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="338,96" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Error" Message="[In_Config(&quot;SE_TemplateFile&quot;).ToString]" />
+              <Throw Exception="[new SystemException(In_Config(&quot;SE_TemplateFile&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="338,92" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

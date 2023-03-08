@@ -8,6 +8,7 @@
     <x:Property Name="In_FreightChargesFolderName" Type="InArgument(x:String)" />
     <x:Property Name="In_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="In_TimeSpanDelay" Type="InArgument(x:TimeSpan)" />
+    <x:Property Name="In_SharepointURL" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -107,7 +108,7 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;LWBRK &amp; Its Dependent Files&#xA;&#xA;[Description]:-&#xA;This workflow is going upload the downloaded files into the SHarepoint Folder.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;In_Config - Config Dictionary File&#xA;In_DirectoryMonth- Month Name for which report would be downloaded&#xA;In_NewApproachFolderName- Folder Name of &quot;New Approach&quot;&#xA;In_Fin003FolderName- Folder Name of &quot;Fin003&quot;&#xA;In_ListofSMD FolderName- Folder name of &quot;List of SMD&quot;&#xA;In_FreightchargesFoldername- Folder name of &quot;Freight Charges&quot;&#xA;[Output]:-&#xA;&#xA;[Author]:- &#xA;brijesh.patel@orica.com" DisplayName="Upload_to_SharePoint" sap:VirtualizedContainerService.HintSize="842,1973.3333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart sap2010:Annotation.AnnotationText="[Workflow Name]:-&#xA;Upload to Sharepoint&#xA;&#xA;[Description]:-&#xA;This workflow is going upload the downloaded files into the SHarepoint Folder.&#xA;&#xA;[Config values]:-&#xA;&#xA;[Input]:-&#xA;In_Config - Config Dictionary File&#xA;In_DirectoryMonth- Month Name for which report would be downloaded&#xA;In_NewApproachFolderName- Folder Name of &quot;New Approach&quot;&#xA;In_Fin003FolderName- Folder Name of &quot;Fin003&quot;&#xA;In_ListofSMD FolderName- Folder name of &quot;List of SMD&quot;&#xA;In_FreightchargesFoldername- Folder name of &quot;Freight Charges&quot;&#xA;[Output]:-&#xA;&#xA;[Author]:- &#xA;brijesh.patel@orica.com" DisplayName="Upload_to_SharePoint" sap:VirtualizedContainerService.HintSize="842,1973.3333333333333" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="s:String[]" Name="GetFilesArray" />
     </Flowchart.Variables>
@@ -133,19 +134,19 @@
           <av:PointCollection x:Key="ConnectorLocation">360,233 360,269</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Sharepoint_Home" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="f88063d9-1f32-4879-bc87-459e0108ea66" Version="V2">
+      <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Sharepoint_Home" sap:VirtualizedContainerService.HintSize="434,420" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="f88063d9-1f32-4879-bc87-459e0108ea66" Version="V2">
         <uix:NApplicationCard.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,218" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="400,200.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="338,93.33333333333333" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="https://orica.sharepoint.com/sites/DX_IT_RPA_Support/Shared%20Documents/Forms/AllItems.aspx?newTargetListUrl=%2Fsites%2FDX%5FIT%5FRPA%5FSupport%2FShared%20Documents&amp;viewpath=%2Fsites%2FDX%5FIT%5FRPA%5FSupport%2FShared%20Documents%2FForms%2FAllItems%2Easpx&amp;id=%2Fsites%2FDX%5FIT%5FRPA%5FSupport%2FShared%20Documents%2FGeneral%2FCapybara&amp;viewid=b29c2c24%2D201b%2D41de%2D8ee4%2D72441fc06308" Version="V3" />
+              <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="338,84.66666666666667" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[In_SharepointURL]" Version="V3" />
             </Sequence>
           </ActivityAction>
         </uix:NApplicationCard.Body>
@@ -1252,7 +1253,7 @@
           <av:PointCollection x:Key="ConnectorLocation">360,153.01999999999998 360,179</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <s1:Login_to_SharePoint DisplayName="Login to SharePoint" sap:VirtualizedContainerService.HintSize="334,197.33333333333334" sap2010:WorkflowViewState.IdRef="Login_to_SharePoint_1" in_Email="[In_Config(&quot;BotEmailId&quot;).ToString]" in_OrchestratorFolderPath="[In_Config(&quot;OrchestratorAssetFolder&quot;).ToString]" in_SharePointCredentialName="[In_Config(&quot;SharePoint_Credentials&quot;).ToString]">
+      <s1:Login_to_SharePoint DisplayName="Login to SharePoint" sap:VirtualizedContainerService.HintSize="200,54" sap2010:WorkflowViewState.IdRef="Login_to_SharePoint_1" in_Email="[In_Config(&quot;BotEmailId&quot;).ToString]" in_OrchestratorFolderPath="[In_Config(&quot;OrchestratorAssetFolder&quot;).ToString]" in_SharePointCredentialName="[In_Config(&quot;SharePoint_Credentials&quot;).ToString]">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
